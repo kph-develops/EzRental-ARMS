@@ -77,6 +77,12 @@ namespace ERAMSDaLayer
         //              but MUST be implemented by any sub or derived classes
         //              that which to inherit from this base class.
         public abstract CreditCardDAO GetCreditCardDAO();
+        public abstract CreditCardProcessingMerchantServiceCompanyDAO GetCreditCardProcessingMerchantServiceCompanyDAO();
+        public abstract CreditCardNetworkCompanyDAO GetCreditCardNetworkCompanyDAO();
+        public abstract CreditCardIssuingBankDAO GetCreditCardIssuingBankDAO();
+        public abstract CreditCardCorporateMerchantBankDAO GetCreditCardCorporateMerchantBankDAO();
+        public abstract USStateDAO GetUSStateDAO();
+        public abstract CountryDAO GetCountryDAO();
 
 
 

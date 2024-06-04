@@ -32,5 +32,12 @@ namespace ERAMSWinClientApp
             scene.ShowDialog();
             
         }
+
+        private void btnRegistration_Click(object sender, EventArgs e)
+        {
+            frmCreditCardRegistrationMS window = new frmCreditCardRegistrationMS();
+            this.Hide();
+            window.ShowDialog();
+        }
     }
 }

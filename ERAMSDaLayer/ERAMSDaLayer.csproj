@@ -41,12 +41,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CountryDAO.cs" />
+    <Compile Include="CountryDTO.cs" />
+    <Compile Include="CreditCardCorporateMerchantBankDAO.cs" />
+    <Compile Include="CreditCardCorporateMerchantBankDTO.cs" />
     <Compile Include="CreditCardDAO.cs" />
     <Compile Include="CreditCardDTO.cs" />
+    <Compile Include="CreditCardIssuingBankDAO.cs" />
+    <Compile Include="CreditCardIssuingBankDTO.cs" />
+    <Compile Include="CreditCardNetworkCompanyDAO.cs" />
+    <Compile Include="CreditCardNetworkCompanyDTO.cs" />
+    <Compile Include="CreditCardProcessingMerchantServiceCompanyDAO.cs" />
+    <Compile Include="CreditCardProcessingMerchantServiceCompanyDTO.cs" />
     <Compile Include="DALObjectFactoryBase.cs" />
     <Compile Include="ICreditCardDAO.cs" />
+    <Compile Include="IUserInterfaceSupportDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLServerDAOFactory.cs" />
+    <Compile Include="USStateDAO.cs" />
+    <Compile Include="USStateDTO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

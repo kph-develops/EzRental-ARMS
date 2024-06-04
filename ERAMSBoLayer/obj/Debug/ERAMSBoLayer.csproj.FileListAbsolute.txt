@@ -1,0 +1,9 @@
+C:\CST4708\ERAMS\ERAMSBoLayer\obj\Debug\ERAMSBoLayer.csproj.AssemblyReference.cache
+C:\CST4708\ERAMS\ERAMSBoLayer\obj\Debug\ERAMSBoLayer.csproj.CoreCompileInputs.cache
+C:\CST4708\ERAMS\ERAMSBoLayer\bin\Debug\ERAMSBoLayer.dll
+C:\CST4708\ERAMS\ERAMSBoLayer\bin\Debug\ERAMSBoLayer.pdb
+C:\CST4708\ERAMS\ERAMSBoLayer\bin\Debug\ERAMSDaLayer.dll
+C:\CST4708\ERAMS\ERAMSBoLayer\bin\Debug\ERAMSDaLayer.pdb
+C:\CST4708\ERAMS\ERAMSBoLayer\obj\Debug\ERAMSBoLayer.csproj.CopyComplete
+C:\CST4708\ERAMS\ERAMSBoLayer\obj\Debug\ERAMSBoLayer.dll
+C:\CST4708\ERAMS\ERAMSBoLayer\obj\Debug\ERAMSBoLayer.pdb

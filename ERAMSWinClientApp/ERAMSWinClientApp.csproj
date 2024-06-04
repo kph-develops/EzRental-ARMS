@@ -52,6 +52,12 @@
     <Compile Include="frmCreditCardMSForm.Designer.cs">
       <DependentUpon>frmCreditCardMSForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCreditCardRegistrationMS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCreditCardRegistrationMS.Designer.cs">
+      <DependentUpon>frmCreditCardRegistrationMS.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCreditCardSearchMS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmCreditCardMSForm.resx">
       <DependentUpon>frmCreditCardMSForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCreditCardRegistrationMS.resx">
+      <DependentUpon>frmCreditCardRegistrationMS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCreditCardSearchMS.resx">
       <DependentUpon>frmCreditCardSearchMS.cs</DependentUpon>

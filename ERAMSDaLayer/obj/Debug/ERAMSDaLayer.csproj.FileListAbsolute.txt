@@ -1,0 +1,6 @@
+C:\CST4708\ERAMS\ERAMSDaLayer\bin\Debug\ERAMSDaLayer.dll
+C:\CST4708\ERAMS\ERAMSDaLayer\bin\Debug\ERAMSDaLayer.pdb
+C:\CST4708\ERAMS\ERAMSDaLayer\obj\Debug\ERAMSDaLayer.csproj.AssemblyReference.cache
+C:\CST4708\ERAMS\ERAMSDaLayer\obj\Debug\ERAMSDaLayer.csproj.CoreCompileInputs.cache
+C:\CST4708\ERAMS\ERAMSDaLayer\obj\Debug\ERAMSDaLayer.dll
+C:\CST4708\ERAMS\ERAMSDaLayer\obj\Debug\ERAMSDaLayer.pdb

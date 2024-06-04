@@ -215,3 +215,25 @@ Credit Card Limit = 10000.00
 CreditCardAvailableCredit = 10000.00
 Credit Card Activation Status = False
 
+Credit Card information:
+Credit Card Number = 1111111111111111
+CreditCardOwnerName = John Brown
+CreditCardProcessingMerchantServiceCompanyCode = 5
+CreditCardProcessingMerchantServiceCompanyName = National Processing
+CreditCardNetworkCompanyCode = 2
+CreditCardNetworkCompanyName = Visa
+CreditCardIssuingBankCode = 8
+CreditCardIssuingBankName = Synchrony Bank
+CreditCardCorporateMerchantBankCode = 2
+CreditCardCorporateMerchantBankName = Citi
+Expiration Date = 1/25/2027 12:00:00 AM
+AddressLine1 = 35 Stevens Street
+AddressLine2 = Apt 2
+City = Mt Vernon
+State = NY
+Zipcode = 10550
+Country = 
+Credit Card Limit = 10000.00
+CreditCardAvailableCredit = 10000.00
+Credit Card Activation Status = False
+

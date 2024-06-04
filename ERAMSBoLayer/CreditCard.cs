@@ -90,8 +90,8 @@ namespace ERAMSBoLayer
             this.m_StateCode = "";
             this.m_ZipCode = "";
             this.m_Country = "";
-            this.m_CreditCardLimit = 3000.0M;
-            this.m_CreditCardAvailableCredit = 3000.0M;
+            CreditCardLimit = 3000.0M;
+           CreditCardAvailableCredit = 3000.0M;
             this.m_CreditCardActivationStatus = true;
         }
 
@@ -118,6 +118,8 @@ namespace ERAMSBoLayer
             this.m_ZipCode = zip;
             this.m_Country = ctr;
             this.m_CreditCardActivationStatus = true;
+            this.m_CreditCardLimit = ccl;
+            this.m_CreditCardAvailableCredit = ccac;
         }
 
         ~CreditCard()
@@ -197,6 +199,17 @@ namespace ERAMSBoLayer
 
         }
 
+        public bool Insert()
+        {
+            bool temp = DALayer_Insert();
+            if (temp)
+            {
+                return true;
+            }
+            else { return false; }
+
+        }
+
 
         #region "PROTECTED INSTANCE & STATIC DATA ACCESS METHODS"
 
@@ -212,6 +225,74 @@ namespace ERAMSBoLayer
         //Parameter:    The key or ID of the object to load.
         //Return Value: Boolean true if found and retrieved from database, false 
         //              otherwise.
+
+        //protected SEARCH Method should already exist from SPRINT #1
+
+        //=================================================================
+        //Name:        DALayer_Insert() Method
+        //Purpose:      Method that CALLS the Data Access Layer services 
+        //              to do the work of INSERTING record to the database.
+        //Algorithm:    Calls the Data Access Layer to do the work
+        //Parameter:    None.
+        //Return Value: Boolean true if record inserted, false otherwise.
+        protected bool DALayer_Insert()
+        {
+            try
+            {
+                //Step 1-Use DAL object Factory Base Class POINTER to get the SQL Server FACTORY 
+                //Data Access Object using POLYMORPHISM.
+                DALObjectFactoryBase objSQLDAOFactory =
+                DALObjectFactoryBase.GetDataSourceDAOFactory(DALObjectFactoryBase.SQLSERVER);
+
+                //Step 2-now that you have the sql FACTORY data access object 
+                //call the correct Data Access Object to perform the Data Access
+                CreditCardDAO objCreditCardDAO = objSQLDAOFactory.GetCreditCardDAO();
+
+                //Step 3-Create new Data Transfer Object to send to DA Later for DATA ACCESS LAYER
+                CreditCardDTO objDTO = new CreditCardDTO();
+
+                //Step 4- POPULATE the Data Transfer Object with data from THIS OBJECT to send to database
+                objDTO.CreditCardNumber = this.CreditCardNumber;
+                objDTO.CreditCardOwnerName = this.CreditCardOwnerName;
+                objDTO.CreditCardProcessingMerchantServiceCompanyCode = this.CreditCardProcessingMerchantServiceCompanyCode;
+                objDTO.CreditCardNetworkCompanyCode = this.CreditCardNetworkCompanyCode;
+                objDTO.CreditCardIssuingBankCode = this.CreditCardIssuingBankCode;
+                objDTO.CreditCardCorporateMerchantBankCode = this.CreditCardCorporateMerchantBankCode;
+                objDTO.ExpDate = this.ExpDate;
+                objDTO.AddressLine1 = this.AddressLine1;
+                objDTO.AddressLine2 = this.AddressLine2;
+                objDTO.City = this.City;
+                objDTO.StateCode = this.StateCode;
+                objDTO.ZipCode = this.ZipCode;
+                objDTO.Country = this.Country;
+                objDTO.CreditCardLimit = this.CreditCardLimit;
+                objDTO.CreditCardAvailableCredit = this.CreditCardAvailableCredit;
+                objDTO.CreditCardActivationStatus = this.CreditCardActivationStatus;
+
+
+                //Step 5-Call DATA ACCESS LAYER CreditCardDAO Data Access Object to do the work
+                bool inserted = objCreditCardDAO.Insert(objDTO);
+
+                //Step 6- test if insert to database was successful return true,
+                if (inserted == true)
+                {
+                    //Step 6a-Returns a true since this class object has been inserted & marked as old. 
+                    return true;
+                }
+                else
+                {
+                    //Step 7- No record inserted, return a false
+                    return false;
+                }
+            }//End of try
+             //Step B-Traps for general exception.  
+            catch (Exception objE)
+            {
+                //Step C-Re-Throw an general exceptions
+                throw new Exception("Unexpected Error is DALayer_Insert() Method: {0} " + objE.Message);
+            }
+        }//End of Method
+
         protected bool DALayer_Load(string key)
         {
             //1.CREATE DATA ACCESS LAYER CLASS OBJECT objDALayer.

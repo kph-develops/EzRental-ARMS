@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace ERAMSDaLayer
 {
-    public interface ICreditCardDAO
+    public interface IUserInterfaceSupportDAO <T>
     {
-        CreditCardDTO GetRecordByID(string key);
-
-        bool Insert(CreditCardDTO objDTO);
+        List<T> GetAllRecords();
     }
 }

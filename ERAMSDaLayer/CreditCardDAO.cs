@@ -140,5 +140,107 @@ namespace ERAMSDaLayer
 
         }//End of GetRecordByID
 
+
+        //=================================================================
+        //Name:         Insert(DTO) Method
+        //Purpose:      Methods that performs the INSERT Data Access using 
+        //              ADO.NET. Method ADDS a CreditCard's RECORD from the 
+        //              CreditCard object passed as parameter used to 
+        //              construct the INSERT query
+        //Parameter:    A Data Transfer CreditCard object with the CreditCard  
+        //              RECORD to Insert.
+        //Return Value: Boolean true if found and added to database, false 
+        //              otherwise.
+        //Error-code:   Trap for GENERAL EXCEPTION? 
+        //              and RE-TROW EXCEPTION so that calling program can handle
+        public bool Insert(CreditCardDTO objDTO)
+        {
+
+            //Step 1-GET the Connection from SQLServerDAOFactory Object & Create ADO SqlConnection Object
+            SqlConnection objConn = new SqlConnection(SQLServerDAOFactory.ConnectionString());
+
+            //Step A-Start Error Trapping
+            try
+            {
+                //Step 2-Open connection
+                objConn.Open();
+
+                //Step 3-Create SQL string
+                string strSQL;
+
+                strSQL = "INSERT INTO CreditCard (CreditCardNumber, CreditCardOwnerName, " +
+                "CreditCardProcessingMerchantServiceCompanyCode, CreditCardNetworkCompanyCode, " +
+                "CreditCardIssuingBankCode, CreditCardCorporateMerchantBankCode, ExpDate, " +
+                "AddressLine1, AddressLine2, City, StateCode, ZipCode, Country, " +
+                "CreditCardLimit, CreditCardAvailableCredit, ActivationStatus) " +
+                "VALUES(@CreditCardNumber, @CreditCardOwnerName, " +
+                "@CreditCardProcessingMerchantServiceCompanyCode, @CreditCardNetworkCompanyCode, " +
+                "@CreditCardIssuingBankCode, @CreditCardCorporateMerchantBankCode, " +
+                "@ExpDate, @AddressLine1, @AddressLine2, @City, @StateCode, @ZipCode, @Country, " +
+                "@CreditCardLimit, @CreditCardAvailableCredit, @ActivationStatus);";
+
+                //Step 4-Create Command object, pass query and connection object
+                SqlCommand objCmd = new SqlCommand(strSQL, objConn);
+
+                //Step 5-SET CommandType Property to text since we have a query string & NOT a Stored-Procedure
+                //For stored procedures syntax is objCmd.CommandType = CommandType.StoredProcedure;
+                objCmd.CommandType = CommandType.Text;
+
+                //Step 6-Add Parameter to. NOTE WE ARE ASSIGNING METHOD PARAMETER
+                //IMPORTANT! Parameter TOKENS @XXXXX name must match same name Used in the INSERT QUERY 
+                //AND IN LISTED IN THE ORDER LISTED IN INSERT QUERY! NOTE WE ARE ASSIGNING ALL OBJECT'S DATA
+                objCmd.Parameters.Add("@CreditCardNumber", SqlDbType.VarChar).Value = objDTO.CreditCardNumber;
+                objCmd.Parameters.Add("@CreditCardOwnerName", SqlDbType.VarChar).Value = objDTO.CreditCardOwnerName;
+                objCmd.Parameters.Add("@CreditCardProcessingMerchantServiceCompanyCode", SqlDbType.TinyInt).Value = objDTO.CreditCardProcessingMerchantServiceCompanyCode;
+                objCmd.Parameters.Add("@CreditCardNetworkCompanyCode", SqlDbType.TinyInt).Value = objDTO.CreditCardNetworkCompanyCode;
+                objCmd.Parameters.Add("@CreditCardIssuingBankCode", SqlDbType.TinyInt).Value = objDTO.CreditCardIssuingBankCode;
+                objCmd.Parameters.Add("@CreditCardCorporateMerchantBankCode", SqlDbType.TinyInt).Value = objDTO.CreditCardCorporateMerchantBankCode;
+                objCmd.Parameters.Add("@ExpDate", SqlDbType.DateTime).Value = objDTO.ExpDate;
+                objCmd.Parameters.Add("@AddressLine1", SqlDbType.VarChar).Value = objDTO.AddressLine1;
+                objCmd.Parameters.Add("@AddressLine2", SqlDbType.VarChar).Value = objDTO.AddressLine2;
+                objCmd.Parameters.Add("@City", SqlDbType.VarChar).Value = objDTO.City;
+                objCmd.Parameters.Add("@StateCode", SqlDbType.Char).Value = objDTO.StateCode.ToCharArray();
+                objCmd.Parameters.Add("@ZipCode", SqlDbType.VarChar).Value = objDTO.ZipCode;
+                objCmd.Parameters.Add("@Country", SqlDbType.VarChar).Value = objDTO.Country;
+                objCmd.Parameters.Add("@CreditCardLimit", SqlDbType.Decimal).Value = objDTO.CreditCardLimit;
+                objCmd.Parameters.Add("@CreditCardAvailableCredit", SqlDbType.Decimal).Value = objDTO.CreditCardAvailableCredit;
+                objCmd.Parameters.Add("@ActivationStatus", SqlDbType.Bit).Value = objDTO.CreditCardActivationStatus;
+
+
+                //Step 7-Execute ACTION-Query, Test result and throw exception if failed
+                int intRecordsAffected = objCmd.ExecuteNonQuery();
+
+                //Step 8-validate if INSERT QUERY was successful
+                if (intRecordsAffected == 1)
+                {
+                    //Step 8a-Return true
+                    return true;
+                }
+
+                //Step 9 - Terminate ADO Objects
+                objCmd.Dispose();
+                objCmd = null;
+
+                //Step10-return false
+                return false;
+
+            }//End of try
+             //Step B-Trap for BO, App & General Exceptions
+            catch (Exception objE)
+            {
+                //Step C- throw system exception since run time error has occurred.
+                throw new Exception("Unexpected Error in CreditCardADO Insert(CreditCardDTO objDTO) Method: {0} " + objE.Message);
+            }
+            finally
+            {
+                //Step 11-Terminate connection
+                objConn.Close();
+                objConn.Dispose();
+                objConn = null;
+            }
+
+        }//End of Insert
+
+
     }
 }
