@@ -1,6 +1,8 @@
 # EzRental-ARMS
 This project consists of the development & implementation of the FRONT-END CLIENT , GUI APPLICATION , Database and Web Application for the Client/Server Auto Rental Point-of-Sales Management System Application.
 
+Video Demonstration of Application : https://youtu.be/CjBdv2QQARc
+
 The Client/Server Auto Rental Point-of-Sales Management System Application is composed of the following main systems:
 
  1. Rental Agency Two-Tiered Windows-Client Client/Server Application named EZRental POS – Front-line workers such as customer service desk in store branches, airports etc., in addition to other support personnel such as service centers employees, inventory etc., are to use this Windows-based client application for speed and performance.
