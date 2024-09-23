@@ -11,7 +11,7 @@ The Client/Server Auto Rental Point-of-Sales Management System Application is co
 
 4. Customer Internet Three-Tiered Web-based Client/Server Application named EZRental.com – This Web Application named EZRental.com,  will be targeted for customers who will reserve vehicles online via a Browser Application.
 
- 5. Database Tier supporting all Three Applications (Rental Agency, Corporate Office & Customer Internet) – Using MS SQL Server. All the front-end applications (Two-Tier Window for agencies, Three-tiered Web for Corporate Offices, and Three-Tier Web for Customers Internet application) will SHARE the same DATABASE TIER.
+ 5. Database Tier supporting all Three Applications (Rental Agency, Corporate Office & Customer Internet) – Using MS SQL Server. All the front-end applications (Two-Tier Window for agencies, Three-tiered Web for Corporate Offices, and Three-Tier Web for Customers Internet application) will share the same database tier.
 
 The goal is to  implement The EZRental POS Two-Tiered Windows-Client Application using Object-Oriented Programming in C#.NET, based on the Object-Oriented Design created by the Object-Oriented Architect.
 
